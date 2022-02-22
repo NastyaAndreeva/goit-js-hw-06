@@ -12,12 +12,12 @@ function getRandomHexColor() {
 }
 
 let amount = null;
+let size = 30;
 
 function createBoxes(amount) {
 
   const elements = [];
-  let size = 30;
-
+  
   for (let i = 0; i < amount; i += 1) {
     let element = document.createElement('div');
     element.style.width = `${size}px`;
@@ -47,5 +47,4 @@ refs.createBtn.addEventListener('click', () => {
   
 });
 
-refs.destroyBtn.addEventListener('click', destroyBoxes)
-
+refs.destroyBtn.addEventListener('click', destroyBoxes);

@@ -13,13 +13,9 @@ const images = [
   },
 ];
 
-const imagesMarkupList = [];
-
-images.forEach(elem => {
-  const imageMarkup = `<li><img src = ${elem.url} alt = ${elem.alt}></li>`;
-  imagesMarkupList.push(imageMarkup);
-});
+const imagesMarkupList = images.map(elem => `<li><img src = ${elem.url} alt = "${elem.alt}"></li>`);
 
 const gallery = document.querySelector('ul.gallery');
+
 gallery.insertAdjacentHTML("beforeend", imagesMarkupList.join(''));
 gallery.classList.add('gallery-list');
