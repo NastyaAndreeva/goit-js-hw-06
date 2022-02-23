@@ -1,10 +1,10 @@
 const inputEl = document.querySelector('#validation-input');
+
 inputEl.addEventListener('blur', onInputBlur);
+inputEl.addEventListener('focus', onInputFocus);
 
 function onInputBlur() {
     if(inputLengthValidation(inputEl)) {
-
-        classConflictsChecking(inputEl);
         addingClass(inputEl, 'valid');
         return;
     }
@@ -12,14 +12,17 @@ function onInputBlur() {
     addingClass(inputEl, 'invalid');
 }
 
-function addingClass(element, className) {
-    element.classList.add(className);
+function onInputFocus() {
+        if (inputEl.classList.contains('valid')) {
+            inputEl.classList.remove('valid');
+        }
+        if (inputEl.classList.contains('invalid')) {
+            inputEl.classList.remove('invalid');
+        }
 }
 
-function classConflictsChecking(element) {
-    if (element.classList.contains('invalid')) {
-        element.classList.remove('invalid');
-    }
+function addingClass(element, className) {
+    element.classList.add(className);
 }
 
 function inputLengthValidation(element) {
